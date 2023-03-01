@@ -35,7 +35,7 @@ Install the dependencies as usual and run the apps with Angular CLI. For example
 
 ## THE TEST
 
-### EXERCISE 1 - falta el CSS
+### EXERCISE 1
 
 - Create a reactive form with two fields "product name" and "price"
 - The price must be a number greater than 5 and less than 20
@@ -45,7 +45,7 @@ Install the dependencies as usual and run the apps with Angular CLI. For example
 - Hide the messages after the form reset
 - Implement unit tests for the component
 
-### EXERCISE 2 - HECHO
+### EXERCISE 2
 
 - Create a new module with a component called "lazy"
 - Use routing to lazy load the module and show the component when the route is "/lazy"
@@ -54,7 +54,7 @@ Install the dependencies as usual and run the apps with Angular CLI. For example
 - Use routing to protect "/secure" route and never let the user load it
 - Add two navigation links on the AppComponent to test both routes
 
-### EXERCISE 3 - HECHO
+### EXERCISE 3
 
 - Modify the DataService getNumbers method to return a random integer number between 0 and 10, once per second
 - Implement unit tests for the service
