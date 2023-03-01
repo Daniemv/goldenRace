@@ -1,0 +1,22 @@
+.counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.circle {
+  border: 1px solid #111;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #f1f1f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.number {
+  font-size: 64px;
+  font-weight: bold;
+}

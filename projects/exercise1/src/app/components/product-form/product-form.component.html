@@ -1,0 +1,30 @@
+<div *ngIf="showSuccessMessage" class="success-message">
+  <p>Product form submitted succesfully!</p>
+</div>
+
+<div class="container">
+  <form [formGroup]="productForm" (ngSubmit)="submitForm()" class="product-form">
+    <div class="form-item">
+      <label for="productName">Product name</label>
+      <input type="text" formControlName="productName" name="productName">
+      <div *ngIf="productName!.invalid && showValidationErrors" class="form-errors">
+        <span *ngIf="productName!.errors!['required']">Product name is required</span>
+        <span *ngIf="productName!.errors!['minlength']">The product name must be longer than 5 characters</span>
+        <span *ngIf="productName!.errors!['maxlength']">The product name must be smaller than 20 characters</span>
+      </div>
+    </div>
+    <div class="form-item">
+      <label for="price">Price</label>
+      <input type="number" formControlName="price" name="price">
+      <div *ngIf="price!.invalid && showValidationErrors" class="form-errors">
+        <span *ngIf="price!.errors!['required']">Price is required</span>
+        <span *ngIf="price!.errors!['min']">Price must be greater than 5</span>
+        <span *ngIf="price!.errors!['max']">Price must be less than 20</span>
+      </div>
+    </div>
+    <div class="form-footer">
+      <button type="button" (click)="resetForm()">Reset</button>
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+</div>
