@@ -13,4 +13,9 @@ describe('SecureGuard', () => {
   it('should be created', () => {
     expect(guard).toBeTruthy();
   });
+
+  it('should return false', () => {
+    expect(guard.canLoad()).toBe(false);
+  });
+
 });

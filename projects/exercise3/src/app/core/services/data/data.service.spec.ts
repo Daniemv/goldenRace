@@ -16,9 +16,12 @@ describe('DataService', () => {
   });
 
   describe('When getNumbers is called', () => {
-    it('should return a random number between 0 and 10', async () => {
+    it('should return a random number greater or equal than 0', async () => {
       const randomNumber = await lastValueFrom(service.getNumbers().pipe(take(1)));
       expect(randomNumber).toBeGreaterThanOrEqual(0);
+    });
+    it('should return a random number less or equal than 10', async () => {
+      const randomNumber = await lastValueFrom(service.getNumbers().pipe(take(1)));
       expect(randomNumber).toBeLessThanOrEqual(10);
     });
   });

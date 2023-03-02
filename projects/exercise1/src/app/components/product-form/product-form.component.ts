@@ -8,9 +8,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ProductFormComponent implements OnInit {
 
-  productForm!: FormGroup;
-  showValidationErrors: boolean = false;
-  showSuccessMessage: boolean = false;
+  public productForm!: FormGroup;
+  public showValidationErrors: boolean = false;
+  public showSuccessMessage: boolean = false;
 
   constructor(private formBuilder: FormBuilder) { }
 
@@ -26,22 +26,43 @@ export class ProductFormComponent implements OnInit {
     this.initForms();
   }
 
-  initForms(): void {
-    this.productForm = this.formBuilder.group({
-      productName: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(20)]],
-      price: [0, [Validators.required, Validators.min(5), Validators.max(20)]]
-    });
-  }
-
-  submitForm(): void {
+  /**
+   * @name submitForm
+   * @description
+   * This method is called when the form is submitted and show success message or validation errors
+   * depending on whether the form is valid or not
+   * @memberof ProductFormComponent
+   */
+  public submitForm(): void {
     this.showValidationErrors = false;
     this.productForm.valid ? this.showSuccessMessage = true : this.showValidationErrors = true;
   }
 
-  resetForm(): void {
+  /**
+   * @name resetForm
+   * @description
+   * This method is called when the form is reset and set default values
+   * validations variables and form elements
+   * @memberof ProductFormComponent
+   */
+  public resetForm(): void {
     this.showValidationErrors = false;
     this.showSuccessMessage = false;
     this.productForm.reset({ productName: '', price: 0 });
+  }
+
+  /**
+   * @name initForms
+   * @description
+   * Initializes the form
+   * @private
+   * @memberof ProductFormComponent
+   */
+  private initForms(): void {
+    this.productForm = this.formBuilder.group({
+      productName: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(20)]],
+      price: [0, [Validators.required, Validators.min(5), Validators.max(20)]]
+    });
   }
 
 }

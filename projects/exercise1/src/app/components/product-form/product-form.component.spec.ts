@@ -55,11 +55,20 @@ describe('ProductFormComponent', () => {
   });
 
   describe('On resetForm', () => {
-    it('should hide all messages and reset product form to default values', () => {
+    it('should hide validation errors', () => {
       component.resetForm();
       expect(component.showValidationErrors).toBeFalsy();
+    });
+    it('should hide success message', () => {
+      component.resetForm();
       expect(component.showSuccessMessage).toBeFalsy();
+    });
+    it('should reset product name to ""', () => {
+      component.resetForm();
       expect(component.productForm.controls['productName'].value).toBe('');
+    });
+    it('should reset product price to 0', () => {
+      component.resetForm();
       expect(component.productForm.controls['price'].value).toBe(0);
     });
   });
